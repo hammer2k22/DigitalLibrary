@@ -39,9 +39,8 @@ public class PeopleController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", personDAO.show(id));
-        if(!personDAO.show(id).getBooksId().isEmpty()){
-            List<Book> books = new ArrayList<>();
-            personDAO.show(id).getBooksId().forEach(bookId -> books.add(bookDAO.show(bookId)));
+        if(!personDAO.show(id).getBooks().isEmpty()){
+            List<Book> books = personDAO.show(id).getBooks();
             model.addAttribute("books",books);
         }
         return "people/show";

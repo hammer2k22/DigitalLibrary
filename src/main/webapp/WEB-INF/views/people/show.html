@@ -9,11 +9,11 @@
 <p th:text="${person.getSurname()+' '+person.getName()+' '+person.getMiddlename()}">NAME</p>
 <p th:text="${'Год рождения: '+person.getYearOfBirth()}">YearOfBirth</p>
 
-<div th:if="${#lists.isEmpty(person.getBooksId())}">
+<div th:if="${#lists.isEmpty(person.getBooks())}">
     <div>Человек пока не взял ни одной книги</div>
 </div>
 
-<div th:unless="${#lists.isEmpty(person.getBooksId())}">
+<div th:unless="${#lists.isEmpty(person.getBooks())}">
     <hr/>
     <b>Книги:</b>
     <div th:each="book : ${books}">

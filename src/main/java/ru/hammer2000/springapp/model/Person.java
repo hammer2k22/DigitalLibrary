@@ -1,7 +1,6 @@
 package ru.hammer2000.springapp.model;
 
 import javax.validation.constraints.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
@@ -21,18 +20,18 @@ public class Person {
     @Min(value = 1900, message = "Год рождения не может быть раньше 1900")
     private int yearOfBirth;
 
-    private List<Integer> booksId;
+    private List<Book> books;
 
     public Person() {
     }
 
-    public Person(int id, String name, String surname, String middlename, int yearOfBirth, List<Integer> booksId) {
+    public Person(int id, String name, String surname, String middlename, int yearOfBirth, List<Book> books) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.middlename = middlename;
         this.yearOfBirth = yearOfBirth;
-        this.booksId = booksId;
+        this.books = books;
     }
 
     public int getId() {
@@ -75,27 +74,16 @@ public class Person {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public List<Integer> getBooksId() {
-        return booksId;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setBooksId(List<Integer> booksId) {
-        this.booksId = booksId;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public String getFullName() {
         return surname + " " + name + " " + middlename;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", middlename='" + middlename + '\'' +
-                ", yearOfBirth=" + yearOfBirth +
-                ", books=" + booksId +
-                '}';
-    }
 }

@@ -3,6 +3,7 @@ package ru.hammer2000.springapp.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import ru.hammer2000.springapp.model.Book;
 import ru.hammer2000.springapp.model.Person;
 
 import java.util.List;
@@ -29,12 +30,16 @@ public class PersonDAO {
                         new Object[]{id}, new PersonMapper())
                 .stream().findAny().orElse(null);
 
-        List<Integer> booksId = jdbcTemplate.query("select book_id from person join book " +
-                        "on person.person_id = book.person_id where person.person_id=?",
-                new Object[]{id}, new BookFromPersonMapper());
+//        List<Integer> booksId = jdbcTemplate.query("select book_id from person join book " +
+//                        "on person.person_id = book.person_id where person.person_id=?",
+//                new Object[]{id}, new BookFromPersonMapper());
+
+        List<Book> books = jdbcTemplate.query("select book_id, book.person_id, title, author, year " +
+                        "from person join book on person.person_id = book.person_id where person.person_id = ?",
+                new Object[]{id}, new BookMapper());
 
         if (person != null) {
-            person.setBooksId(booksId);
+            person.setBooks(books);
         }
         return person;
     }
