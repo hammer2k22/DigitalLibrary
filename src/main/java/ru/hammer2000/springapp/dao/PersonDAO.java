@@ -30,10 +30,6 @@ public class PersonDAO {
                         new Object[]{id}, new PersonMapper())
                 .stream().findAny().orElse(null);
 
-//        List<Integer> booksId = jdbcTemplate.query("select book_id from person join book " +
-//                        "on person.person_id = book.person_id where person.person_id=?",
-//                new Object[]{id}, new BookFromPersonMapper());
-
         List<Book> books = jdbcTemplate.query("select book_id, book.person_id, title, author, year " +
                         "from person join book on person.person_id = book.person_id where person.person_id = ?",
                 new Object[]{id}, new BookMapper());
