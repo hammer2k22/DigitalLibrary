@@ -1,6 +1,9 @@
 package ru.hammer2000.springapp.model;
 
-import javax.validation.constraints.*;
+
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 public class Book {
 

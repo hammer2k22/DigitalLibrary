@@ -1,5 +1,6 @@
 package ru.hammer2000.springapp.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import ru.hammer2000.springapp.model.Book;
 import ru.hammer2000.springapp.model.Person;
 import ru.hammer2000.springapp.util.PersonValidator;
 
-import javax.validation.Valid;
+
 import java.util.List;
 
 @Controller

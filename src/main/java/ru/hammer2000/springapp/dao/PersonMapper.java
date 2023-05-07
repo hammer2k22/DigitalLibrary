@@ -1,13 +1,10 @@
 package ru.hammer2000.springapp.dao;
 
 import org.springframework.jdbc.core.RowMapper;
-import ru.hammer2000.springapp.model.Book;
 import ru.hammer2000.springapp.model.Person;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class PersonMapper implements RowMapper<Person> {
     @Override
