@@ -1,8 +1,5 @@
 package ru.hammer2000.springapp.config;
 
-
-
-
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.FilterRegistration;
 import jakarta.servlet.ServletContext;
